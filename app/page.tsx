@@ -221,7 +221,7 @@ export default function Page() {
             </div>
             <p className="lead reveal reveal-delay-2">
               Vintly nie udaje rakiety. Robi konkretne rzeczy, których wymaga
-              sprzedaż na Vinted — tylko szybciej i bez Twojego udziału.
+              sprzedaż na Vinted - tylko szybciej i bez Twojego udziału.
             </p>
           </div>
 
@@ -251,7 +251,7 @@ export default function Page() {
                 <h3>Smart replies.</h3>
                 <p>
                   Szablony, które brzmią po ludzku. Negocjacje, pytania o
-                  rozmiar, wysyłkę — Vintly odpowiada w Twoim stylu.
+                  rozmiar, wysyłkę - Vintly odpowiada w Twoim stylu.
                 </p>
               </div>
               <div className="replies">
@@ -510,7 +510,7 @@ export default function Page() {
                   <li>
                     <strong>Payment data:</strong> handled exclusively by our
                     payment processor (Stripe). We never see or store full
-                    card details — we only receive the last 4 digits and a
+                    card details - we only receive the last 4 digits and a
                     transaction reference.
                   </li>
                   <li>
@@ -574,7 +574,7 @@ export default function Page() {
                   We retain account data for as long as your account is active.
                   Once you delete your account, your data is permanently erased
                   within 30 days, except where we are legally required to
-                  retain it (e.g. invoicing data — kept for 5 years under
+                  retain it (e.g. invoicing data - kept for 5 years under
                   Polish accounting law).
                 </p>
               </div>
@@ -589,15 +589,15 @@ export default function Page() {
                 </p>
                 <ul>
                   <li>
-                    <strong>Stripe</strong> (payments) — processes subscription
+                    <strong>Stripe</strong> (payments) - processes subscription
                     payments. See Stripe&apos;s privacy policy.
                   </li>
                   <li>
-                    <strong>Hetzner</strong> (EU hosting) — provides server
+                    <strong>Hetzner</strong> (EU hosting) - provides server
                     infrastructure within the EU.
                   </li>
                   <li>
-                    <strong>Postmark</strong> (transactional email) — delivers
+                    <strong>Postmark</strong> (transactional email) - delivers
                     account-related emails.
                   </li>
                 </ul>
@@ -623,35 +623,35 @@ export default function Page() {
                 </p>
                 <ul>
                   <li>
-                    <strong>Access</strong> — request a copy of the personal
+                    <strong>Access</strong> - request a copy of the personal
                     data we hold about you.
                   </li>
                   <li>
-                    <strong>Rectification</strong> — request correction of
+                    <strong>Rectification</strong> - request correction of
                     inaccurate or incomplete data.
                   </li>
                   <li>
-                    <strong>Erasure</strong> — request deletion of your data
+                    <strong>Erasure</strong> - request deletion of your data
                     (&quot;right to be forgotten&quot;).
                   </li>
                   <li>
-                    <strong>Portability</strong> — receive your data in a
+                    <strong>Portability</strong> - receive your data in a
                     machine-readable format (JSON export).
                   </li>
                   <li>
-                    <strong>Restriction</strong> — request that we limit
+                    <strong>Restriction</strong> - request that we limit
                     processing of your data.
                   </li>
                   <li>
-                    <strong>Objection</strong> — object to processing based on
+                    <strong>Objection</strong> - object to processing based on
                     legitimate interests.
                   </li>
                   <li>
-                    <strong>Withdraw consent</strong> — at any time, where
+                    <strong>Withdraw consent</strong> - at any time, where
                     processing is based on consent.
                   </li>
                   <li>
-                    <strong>Lodge a complaint</strong> — with the Polish data
+                    <strong>Lodge a complaint</strong> - with the Polish data
                     protection authority (Prezes Urzędu Ochrony Danych
                     Osobowych, uodo.gov.pl).
                   </li>
@@ -670,12 +670,12 @@ export default function Page() {
                 <p>The Vintly website uses a minimal set of cookies:</p>
                 <ul>
                   <li>
-                    <strong>Essential cookies</strong> — required for login
+                    <strong>Essential cookies</strong> - required for login
                     sessions and security (e.g. CSRF tokens). These cannot be
                     disabled.
                   </li>
                   <li>
-                    <strong>Preference cookies</strong> — remember your
+                    <strong>Preference cookies</strong> - remember your
                     settings (language, theme).
                   </li>
                 </ul>

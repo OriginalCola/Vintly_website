@@ -10,7 +10,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Vintly — Automatyzuj sprzedaż na Vinted",
+  title: "Vintly - Automatyzuj sprzedaż na Vinted",
   description:
     "Vintly to rozszerzenie Chrome, które automatyzuje sprzedaż na Vinted: auto-bump, masowe wystawianie, inteligentne odpowiedzi i analityka.",
   icons: {
@@ -19,9 +19,9 @@ export const metadata: Metadata = {
     apple: "/favicon.png",
   },
   openGraph: {
-    title: "Vintly — Automatyzuj sprzedaż na Vinted",
+    title: "Vintly - Automatyzuj sprzedaż na Vinted",
     description:
-      "Auto-bump, masowe wystawianie, smart replies i analityka — wszystko w jednym rozszerzeniu Chrome.",
+      "Auto-bump, masowe wystawianie, smart replies i analityka - wszystko w jednym rozszerzeniu Chrome.",
     type: "website",
   },
 };
