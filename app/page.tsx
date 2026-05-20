@@ -1,20 +1,47 @@
 "use client";
 
-import Image from "next/image";
 import { useEffect } from "react";
+import Nav from "./components/Nav";
+import Footer from "./components/Footer";
 import SalesChart from "./components/SalesChart";
+
+const FAQ = [
+  {
+    q: "Czy Vintly jest legalne i czy mogę dostać bana na Vinted?",
+    a: "Vintly automatyzuje czynności, które i tak codziennie wykonujesz ręcznie — podbijanie ogłoszeń, odpowiadanie kupującym, wystawianie przedmiotów. Działa z Twoją normalną sesją w przeglądarce, z naturalnymi opóźnieniami i w granicach limitów Vinted. W historii produktu nie odnotowaliśmy bana spowodowanego użyciem Vintly. Mimo to: nie oferujemy gwarancji ani ubezpieczenia konta — używasz na własną odpowiedzialność.",
+  },
+  {
+    q: "Czy moje hasło do Vinted jest bezpieczne?",
+    a: "Nie przechowujemy Twojego hasła. Vintly korzysta z aktywnej sesji Vinted w Twojej przeglądarce — tej samej, którą i tak masz otwartą po zalogowaniu. Hasło nigdy nie opuszcza Twojego komputera, nie jest wysyłane na nasze serwery, nie jest logowane.",
+  },
+  {
+    q: "Na jakich systemach i przeglądarkach działa?",
+    a: "Wszędzie, gdzie działa Chrome — Windows, macOS, Linux, ChromeOS. Edge i Brave (oparte na Chromium) też. Safari nie jest wspierane. Smartfon też nie — Vintly to rozszerzenie desktopowe.",
+  },
+  {
+    q: "Co się dzieje, kiedy Vinted zaktualizuje swoją stronę?",
+    a: "Pilnujemy zmian po stronie Vinted i wypuszczamy aktualizacje średnio raz w tygodniu. Jeśli coś się zepsuje, zwykle naprawiamy w 24–48 godzin i automatycznie aktualizujemy rozszerzenie — nic nie musisz robić.",
+  },
+  {
+    q: "Mogę anulować Pro w każdej chwili?",
+    a: "Tak. Klik w ustawieniach konta i koniec — bez okresu wypowiedzenia, bez pytań „dlaczego odchodzisz”, bez retencji. Po anulowaniu Pro działa do końca opłaconego miesiąca, potem konto wraca do planu Free.",
+  },
+  {
+    q: "Jak często Vintly podbija moje ogłoszenia?",
+    a: "Algorytm pilnuje minimalnego odstępu wymaganego przez Vinted (3 dni dla większości kategorii) i wybiera sloty czasowe, w których kupujący Twojej kategorii są najbardziej aktywni. Możesz też ustawić własny harmonogram, jeśli wolisz pełną kontrolę.",
+  },
+  {
+    q: "Czy smart replies brzmią naturalnie, czy jak bot?",
+    a: "Każdą odpowiedź konfigurujesz pod siebie — Vintly podpowiada szablon, ale finalnie używa Twojego stylu, Twoich emoji, Twoich skrótów. Pro odblokowuje generowanie odpowiedzi z AI dopasowanych do kontekstu rozmowy. Zawsze możesz włączyć tryb „pokaż przed wysłaniem” i ręcznie zaakceptować każdą wiadomość.",
+  },
+  {
+    q: "Mogę używać Vintly na kilku kontach Vinted?",
+    a: "W planie Free — jedno konto. Pro pozwala na maks. 3 aktywne konta jednocześnie, przełączane jednym kliknięciem. Każde konto ma osobne ustawienia bumpów, szablonów i statystyki.",
+  },
+];
 
 export default function Page() {
   useEffect(() => {
-    const nav = document.querySelector(".nav");
-    const onScroll = () => {
-      if (!nav) return;
-      if (window.scrollY > 20) nav.classList.add("scrolled");
-      else nav.classList.remove("scrolled");
-    };
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-
     const io = new IntersectionObserver(
       (entries) => {
         entries.forEach((e) => {
@@ -27,41 +54,12 @@ export default function Page() {
       { threshold: 0.12, rootMargin: "0px 0px -60px 0px" }
     );
     document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
-
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      io.disconnect();
-    };
+    return () => io.disconnect();
   }, []);
 
   return (
     <>
-      {/* ============== NAV ============== */}
-      <header className="nav">
-        <div className="container nav-inner">
-          <a href="#top" className="nav-logo" aria-label="Vintly">
-            <Image
-              src="/logotypenavbar.png"
-              alt="Vintly"
-              width={200}
-              height={48}
-              priority
-            />
-          </a>
-          <nav className="nav-links">
-            <a href="#funkcje">Funkcje</a>
-            <a href="#jak">Jak to działa</a>
-            <a href="#cennik">Cennik</a>
-            <a href="#privacy">Privacy</a>
-          </nav>
-          <a href="#" className="btn btn-primary btn-sm">
-            Dodaj do Chrome
-            <span className="arrow" aria-hidden>
-              ↗
-            </span>
-          </a>
-        </div>
-      </header>
+      <Nav />
 
       {/* ============== HERO ============== */}
       <section id="top" className="hero">
@@ -74,8 +72,8 @@ export default function Page() {
             </h1>
             <p className="hero-lead reveal reveal-delay-2">
               Vintly automatycznie podbija Twoje ogłoszenia, wystawia setki
-              przedmiotów hurtowo i odpowiada kupującym, zanim zdążysz
-              odblokować telefon. Mniej klikania, więcej sprzedaży.
+              przedmiotów hurtowo i odpowiada kupującym, zanim zdążysz odblokować
+              telefon. Mniej klikania, więcej sprzedaży.
             </p>
             <div className="hero-cta reveal reveal-delay-3">
               <a href="#" className="btn btn-primary">
@@ -97,7 +95,6 @@ export default function Page() {
             </div>
           </div>
 
-          {/* Visual: extension mockup composed in CSS/SVG */}
           <div className="hero-visual" aria-hidden>
             <div className="ext-card main float">
               <div className="ext-head">
@@ -270,8 +267,8 @@ export default function Page() {
                 <span className="num serif italic">03</span>
                 <h3>Bulk listing.</h3>
                 <p>
-                  Wystaw 50 przedmiotów w czasie, w którym normalnie
-                  wystawiłeś jeden. CSV, drag & drop, auto-tagi.
+                  Wystaw 50 przedmiotów w czasie, w którym normalnie wystawiłeś
+                  jeden. CSV, drag &amp; drop, auto-tagi.
                 </p>
               </div>
               <div className="bulk-grid">
@@ -337,8 +334,8 @@ export default function Page() {
               <div className="step-num">03</div>
               <h3>Zarabiaj</h3>
               <p>
-                Vintly pracuje 24/7 nawet kiedy śpisz. Ty tylko pakujesz
-                paczki i sprawdzasz statystyki przy kawie.
+                Vintly pracuje 24/7 nawet kiedy śpisz. Ty tylko pakujesz paczki
+                i sprawdzasz statystyki przy kawie.
               </p>
             </div>
           </div>
@@ -358,8 +355,8 @@ export default function Page() {
               </h2>
             </div>
             <p className="lead reveal reveal-delay-2">
-              Bez okresu próbnego, bez ukrytych opłat. Plan Free jest
-              naprawdę darmowy. Pro odblokowuje moc.
+              Bez okresu próbnego, bez ukrytych opłat. Plan Free jest naprawdę
+              darmowy. Pro odblokowuje moc.
             </p>
           </div>
 
@@ -414,389 +411,45 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ============== PRIVACY POLICY ============== */}
-      <section id="privacy" className="privacy">
-        <div className="container privacy-wrap">
-          <aside className="privacy-aside">
-            <span className="eyebrow reveal">Privacy Policy</span>
-            <h2 className="reveal reveal-delay-1">
-              Your data,
-              <br />
-              <span className="italic">your rules.</span>
-            </h2>
-            <p className="meta">Last updated: 17 May 2026</p>
-            <ul className="toc">
-              <li>
-                <a href="#pp-intro">1. Introduction</a>
-              </li>
-              <li>
-                <a href="#pp-data">2. Data we collect</a>
-              </li>
-              <li>
-                <a href="#pp-use">3. How we use data</a>
-              </li>
-              <li>
-                <a href="#pp-storage">4. Storage &amp; security</a>
-              </li>
-              <li>
-                <a href="#pp-sharing">5. Sharing with third parties</a>
-              </li>
-              <li>
-                <a href="#pp-rights">6. Your rights (GDPR)</a>
-              </li>
-              <li>
-                <a href="#pp-cookies">7. Cookies</a>
-              </li>
-              <li>
-                <a href="#pp-children">8. Children&apos;s privacy</a>
-              </li>
-              <li>
-                <a href="#pp-changes">9. Changes to this policy</a>
-              </li>
-              <li>
-                <a href="#pp-contact">10. Contact</a>
-              </li>
-            </ul>
-          </aside>
+      {/* ============== FAQ ============== */}
+      <section id="faq" className="faq">
+        <div className="container">
+          <div className="section-head">
+            <div>
+              <span className="eyebrow reveal">FAQ</span>
+              <h2 className="reveal reveal-delay-1">
+                Pytania,
+                <br />
+                <span className="italic">które najczęściej dostajemy.</span>
+              </h2>
+            </div>
+            <p className="lead reveal reveal-delay-2">
+              Nie znalazłeś odpowiedzi? Napisz do nas:{" "}
+              <a href="mailto:contact@vintly.pl" className="lead-link">
+                contact@vintly.pl
+              </a>
+              . Odpowiadamy zwykle w ciągu kilku godzin.
+            </p>
+          </div>
 
-          <div className="privacy-content reveal reveal-delay-2">
-            <details id="pp-intro" open>
-              <summary>1. Introduction</summary>
-              <div className="privacy-body">
-                <p>
-                  This Privacy Policy describes how <strong>Vintly</strong>{" "}
-                  (&quot;we&quot;, &quot;our&quot;, or &quot;us&quot;)
-                  collects, uses, stores, and protects information when you use
-                  the Vintly Chrome Extension (the &quot;Extension&quot;) and
-                  the website at vintly.pl (collectively, the
-                  &quot;Service&quot;).
-                </p>
-                <p>
-                  By installing or using the Extension, you agree to the
-                  practices described in this policy. If you do not agree, do
-                  not install or use the Extension.
-                </p>
-                <p>
-                  Vintly is not affiliated with, endorsed by, or sponsored by
-                  Vinted UAB. Vinted is a trademark of its respective owner.
-                </p>
-              </div>
-            </details>
-
-            <details id="pp-data">
-              <summary>2. Data we collect</summary>
-              <div className="privacy-body">
-                <p>We collect only the minimum data required to operate the Service:</p>
-                <ul>
-                  <li>
-                    <strong>Account data:</strong> email address (when you
-                    create a Vintly account), hashed password, account tier
-                    (Free / Pro), and subscription status.
-                  </li>
-                  <li>
-                    <strong>Extension usage data:</strong> anonymous usage
-                    statistics such as feature usage counts, error logs,
-                    extension version, and browser language. We do
-                    <em> not </em>collect browsing history outside of Vinted.
-                  </li>
-                  <li>
-                    <strong>Vinted activity (local only):</strong> the
-                    Extension reads your active Vinted session in your browser
-                    in order to perform automation actions (auto-bump, bulk
-                    listing, replies). This data stays in your browser and is
-                    never transmitted to our servers, except aggregated
-                    statistics you explicitly enable.
-                  </li>
-                  <li>
-                    <strong>Payment data:</strong> handled exclusively by our
-                    payment processor (Stripe). We never see or store full
-                    card details - we only receive the last 4 digits and a
-                    transaction reference.
-                  </li>
-                  <li>
-                    <strong>Technical data:</strong> IP address (truncated and
-                    used only for fraud prevention), device type, and
-                    timestamp of requests.
-                  </li>
-                </ul>
-                <p>
-                  We do <strong>not</strong> collect: real names, addresses,
-                  phone numbers, photos, message content from buyers, or any
-                  data unrelated to the Service.
-                </p>
-              </div>
-            </details>
-
-            <details id="pp-use">
-              <summary>3. How we use your data</summary>
-              <div className="privacy-body">
-                <p>We use the data we collect strictly to:</p>
-                <ul>
-                  <li>Operate, maintain, and improve the Extension and the Service.</li>
-                  <li>Authenticate users and manage subscriptions.</li>
-                  <li>Detect and prevent fraud, abuse, and security incidents.</li>
-                  <li>
-                    Send transactional emails (account verification, password
-                    resets, subscription receipts).
-                  </li>
-                  <li>
-                    Provide customer support when you contact us at
-                    <a href="mailto:contact@vintly.pl"> contact@vintly.pl</a>.
-                  </li>
-                  <li>
-                    Comply with legal obligations under EU and Polish law.
-                  </li>
-                </ul>
-                <p>
-                  <strong>
-                    We never sell your data to third parties. We never use
-                    your data for advertising or profiling.
-                  </strong>
-                </p>
-              </div>
-            </details>
-
-            <details id="pp-storage">
-              <summary>4. Storage &amp; security</summary>
-              <div className="privacy-body">
-                <p>
-                  All personal data is stored on encrypted servers located in
-                  the European Union (Frankfurt, Germany). Data in transit is
-                  protected by TLS 1.3. Data at rest is encrypted with AES-256.
-                </p>
-                <p>
-                  Passwords are hashed using Argon2id and are never stored or
-                  transmitted in plaintext. Access to production systems is
-                  restricted to authorized personnel through multi-factor
-                  authentication and is logged.
-                </p>
-                <p>
-                  We retain account data for as long as your account is active.
-                  Once you delete your account, your data is permanently erased
-                  within 30 days, except where we are legally required to
-                  retain it (e.g. invoicing data - kept for 5 years under
-                  Polish accounting law).
-                </p>
-              </div>
-            </details>
-
-            <details id="pp-sharing">
-              <summary>5. Sharing with third parties</summary>
-              <div className="privacy-body">
-                <p>
-                  We share data only with carefully selected processors strictly
-                  necessary to run the Service:
-                </p>
-                <ul>
-                  <li>
-                    <strong>Stripe</strong> (payments) - processes subscription
-                    payments. See Stripe&apos;s privacy policy.
-                  </li>
-                  <li>
-                    <strong>Hetzner</strong> (EU hosting) - provides server
-                    infrastructure within the EU.
-                  </li>
-                  <li>
-                    <strong>Postmark</strong> (transactional email) - delivers
-                    account-related emails.
-                  </li>
-                </ul>
-                <p>
-                  Each processor is bound by a Data Processing Agreement (DPA)
-                  and is GDPR-compliant. We do not transfer personal data
-                  outside the European Economic Area.
-                </p>
-                <p>
-                  We may disclose data if required by a valid legal request from
-                  a competent authority, but we will challenge overly broad
-                  requests whenever possible.
-                </p>
-              </div>
-            </details>
-
-            <details id="pp-rights">
-              <summary>6. Your rights (GDPR)</summary>
-              <div className="privacy-body">
-                <p>
-                  Under the EU General Data Protection Regulation (GDPR) and
-                  Polish data protection law, you have the right to:
-                </p>
-                <ul>
-                  <li>
-                    <strong>Access</strong> - request a copy of the personal
-                    data we hold about you.
-                  </li>
-                  <li>
-                    <strong>Rectification</strong> - request correction of
-                    inaccurate or incomplete data.
-                  </li>
-                  <li>
-                    <strong>Erasure</strong> - request deletion of your data
-                    (&quot;right to be forgotten&quot;).
-                  </li>
-                  <li>
-                    <strong>Portability</strong> - receive your data in a
-                    machine-readable format (JSON export).
-                  </li>
-                  <li>
-                    <strong>Restriction</strong> - request that we limit
-                    processing of your data.
-                  </li>
-                  <li>
-                    <strong>Objection</strong> - object to processing based on
-                    legitimate interests.
-                  </li>
-                  <li>
-                    <strong>Withdraw consent</strong> - at any time, where
-                    processing is based on consent.
-                  </li>
-                  <li>
-                    <strong>Lodge a complaint</strong> - with the Polish data
-                    protection authority (Prezes Urzędu Ochrony Danych
-                    Osobowych, uodo.gov.pl).
-                  </li>
-                </ul>
-                <p>
-                  To exercise any of these rights, email{" "}
-                  <a href="mailto:contact@vintly.pl">contact@vintly.pl</a>. We
-                  will respond within 30 days.
-                </p>
-              </div>
-            </details>
-
-            <details id="pp-cookies">
-              <summary>7. Cookies</summary>
-              <div className="privacy-body">
-                <p>The Vintly website uses a minimal set of cookies:</p>
-                <ul>
-                  <li>
-                    <strong>Essential cookies</strong> - required for login
-                    sessions and security (e.g. CSRF tokens). These cannot be
-                    disabled.
-                  </li>
-                  <li>
-                    <strong>Preference cookies</strong> - remember your
-                    settings (language, theme).
-                  </li>
-                </ul>
-                <p>
-                  We do <strong>not</strong> use advertising cookies, tracking
-                  pixels, or third-party analytics that profile users. The
-                  Vintly Extension itself does not set cookies on websites you
-                  visit; it only reads your active Vinted session, locally,
-                  to perform the automation you requested.
-                </p>
-                <p>
-                  You can clear or block cookies at any time through your
-                  browser settings. Doing so may impact login functionality.
-                </p>
-              </div>
-            </details>
-
-            <details id="pp-children">
-              <summary>8. Children&apos;s privacy</summary>
-              <div className="privacy-body">
-                <p>
-                  The Service is not directed at children under 16 years of
-                  age. We do not knowingly collect personal data from children
-                  under 16. If you believe a child has provided us with
-                  personal data, please contact us and we will delete it.
-                </p>
-              </div>
-            </details>
-
-            <details id="pp-changes">
-              <summary>9. Changes to this policy</summary>
-              <div className="privacy-body">
-                <p>
-                  We may update this Privacy Policy from time to time to
-                  reflect changes in our practices, technology, legal
-                  requirements, or other factors. When we make material
-                  changes, we will notify you by email and update the
-                  &quot;Last updated&quot; date at the top of the policy.
-                </p>
-                <p>
-                  Continued use of the Service after changes take effect
-                  constitutes acceptance of the revised policy.
-                </p>
-              </div>
-            </details>
-
-            <details id="pp-contact">
-              <summary>10. Contact</summary>
-              <div className="privacy-body">
-                <p>
-                  If you have questions about this Privacy Policy or how we
-                  handle your data, contact our Data Protection Officer:
-                </p>
-                <p>
-                  <strong>Email:</strong>{" "}
-                  <a href="mailto:contact@vintly.pl">contact@vintly.pl</a>
-                  <br />
-                  <strong>Subject line:</strong> &quot;Privacy request&quot;
-                </p>
-                <p>
-                  We aim to respond to all privacy-related inquiries within 5
-                  business days.
-                </p>
-              </div>
-            </details>
+          <div className="faq-list reveal">
+            {FAQ.map((item, i) => (
+              <details key={i} className="faq-item">
+                <summary>
+                  <span className="faq-num">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <span className="faq-q">{item.q}</span>
+                  <span className="faq-icon" aria-hidden />
+                </summary>
+                <div className="faq-a">{item.a}</div>
+              </details>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* ============== FOOTER ============== */}
-      <footer className="footer">
-        <div className="container">
-          <div className="footer-grid">
-            <div>
-              <Image
-                src="/icon-with-text.png"
-                alt="Vintly"
-                width={160}
-                height={40}
-                className="footer-logo"
-              />
-              <p className="footer-tag">
-                Automatyzacja sprzedaży na Vinted dla ludzi, którzy mają
-                ważniejsze rzeczy na głowie niż klikanie &quot;podbij&quot;.
-              </p>
-            </div>
-            <div className="footer-col">
-              <h4>Produkt</h4>
-              <ul>
-                <li>
-                  <a href="#funkcje">Funkcje</a>
-                </li>
-                <li>
-                  <a href="#jak">Jak to działa</a>
-                </li>
-                <li>
-                  <a href="#cennik">Cennik</a>
-                </li>
-                <li>
-                  <a href="#">Chrome Web Store</a>
-                </li>
-              </ul>
-            </div>
-            <div className="footer-col">
-              <h4>Kontakt</h4>
-              <ul>
-                <li>
-                  <a href="#privacy">Privacy Policy</a>
-                </li>
-                <li>
-                  <a href="mailto:contact@vintly.pl">contact@vintly.pl</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div className="footer-bottom">
-            <span>© 2026 Vintly. All rights reserved.</span>
-            <span>Made with care in EU · Not affiliated with Vinted</span>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </>
   );
 }
