@@ -8,23 +8,23 @@ import SalesChart from "./components/SalesChart";
 const FAQ = [
   {
     q: "Czy Vintly jest legalne i czy mogę dostać bana na Vinted?",
-    a: "Vintly automatyzuje czynności, które i tak codziennie wykonujesz ręcznie — podbijanie ogłoszeń, odpowiadanie kupującym, wystawianie przedmiotów. Działa z Twoją normalną sesją w przeglądarce, z naturalnymi opóźnieniami i w granicach limitów Vinted. W historii produktu nie odnotowaliśmy bana spowodowanego użyciem Vintly. Mimo to: nie oferujemy gwarancji ani ubezpieczenia konta — używasz na własną odpowiedzialność.",
+    a: "Vintly automatyzuje czynności, które i tak codziennie wykonujesz ręcznie - podbijanie ogłoszeń, odpowiadanie kupującym, wystawianie przedmiotów. Działa z Twoją normalną sesją w przeglądarce, z naturalnymi opóźnieniami i w granicach limitów Vinted. W historii produktu nie odnotowaliśmy bana spowodowanego użyciem Vintly. Mimo to: nie oferujemy gwarancji ani ubezpieczenia konta - używasz na własną odpowiedzialność.",
   },
   {
     q: "Czy moje hasło do Vinted jest bezpieczne?",
-    a: "Nie przechowujemy Twojego hasła. Vintly korzysta z aktywnej sesji Vinted w Twojej przeglądarce — tej samej, którą i tak masz otwartą po zalogowaniu. Hasło nigdy nie opuszcza Twojego komputera, nie jest wysyłane na nasze serwery, nie jest logowane.",
+    a: "Nie przechowujemy Twojego hasła. Vintly korzysta z aktywnej sesji Vinted w Twojej przeglądarce - tej samej, którą i tak masz otwartą po zalogowaniu. Hasło nigdy nie opuszcza Twojego komputera, nie jest wysyłane na nasze serwery, nie jest logowane.",
   },
   {
     q: "Na jakich systemach i przeglądarkach działa?",
-    a: "Wszędzie, gdzie działa Chrome — Windows, macOS, Linux, ChromeOS. Edge i Brave (oparte na Chromium) też. Safari nie jest wspierane. Smartfon też nie — Vintly to rozszerzenie desktopowe.",
+    a: "Wszędzie, gdzie działa Chrome - Windows, macOS, Linux, ChromeOS. Edge i Brave (oparte na Chromium) też. Safari nie jest wspierane. Smartfon też nie - Vintly to rozszerzenie desktopowe.",
   },
   {
     q: "Co się dzieje, kiedy Vinted zaktualizuje swoją stronę?",
-    a: "Pilnujemy zmian po stronie Vinted i wypuszczamy aktualizacje średnio raz w tygodniu. Jeśli coś się zepsuje, zwykle naprawiamy w 24–48 godzin i automatycznie aktualizujemy rozszerzenie — nic nie musisz robić.",
+    a: "Pilnujemy zmian po stronie Vinted i wypuszczamy aktualizacje średnio raz w tygodniu. Jeśli coś się zepsuje, zwykle naprawiamy w 24–48 godzin i automatycznie aktualizujemy rozszerzenie - nic nie musisz robić.",
   },
   {
     q: "Mogę anulować Pro w każdej chwili?",
-    a: "Tak. Klik w ustawieniach konta i koniec — bez okresu wypowiedzenia, bez pytań „dlaczego odchodzisz”, bez retencji. Po anulowaniu Pro działa do końca opłaconego miesiąca, potem konto wraca do planu Free.",
+    a: "Tak. Klik w ustawieniach konta i koniec - bez okresu wypowiedzenia, bez pytań „dlaczego odchodzisz”, bez retencji. Po anulowaniu Pro działa do końca opłaconego miesiąca, potem konto wraca do planu Free.",
   },
   {
     q: "Jak często Vintly podbija moje ogłoszenia?",
@@ -32,11 +32,11 @@ const FAQ = [
   },
   {
     q: "Czy smart replies brzmią naturalnie, czy jak bot?",
-    a: "Każdą odpowiedź konfigurujesz pod siebie — Vintly podpowiada szablon, ale finalnie używa Twojego stylu, Twoich emoji, Twoich skrótów. Pro odblokowuje generowanie odpowiedzi z AI dopasowanych do kontekstu rozmowy. Zawsze możesz włączyć tryb „pokaż przed wysłaniem” i ręcznie zaakceptować każdą wiadomość.",
+    a: "Każdą odpowiedź konfigurujesz pod siebie - Vintly podpowiada szablon, ale finalnie używa Twojego stylu, Twoich emoji, Twoich skrótów. Pro odblokowuje generowanie odpowiedzi z AI dopasowanych do kontekstu rozmowy. Zawsze możesz włączyć tryb „pokaż przed wysłaniem” i ręcznie zaakceptować każdą wiadomość.",
   },
   {
     q: "Mogę używać Vintly na kilku kontach Vinted?",
-    a: "W planie Free — jedno konto. Pro pozwala na maks. 3 aktywne konta jednocześnie, przełączane jednym kliknięciem. Każde konto ma osobne ustawienia bumpów, szablonów i statystyki.",
+    a: "W planie Free - jedno konto. Pro pozwala na maks. 3 aktywne konta jednocześnie, przełączane jednym kliknięciem. Każde konto ma osobne ustawienia bumpów, szablonów i statystyki.",
   },
 ];
 
@@ -349,14 +349,13 @@ export default function Page() {
             <div>
               <span className="eyebrow reveal">Cennik</span>
               <h2 className="reveal reveal-delay-1">
-                Zacznij za darmo.
+                Wypróbuj
                 <br />
                 <span className="italic">Skaluj kiedy chcesz.</span>
               </h2>
             </div>
             <p className="lead reveal reveal-delay-2">
-              Bez okresu próbnego, bez ukrytych opłat. Plan Free jest naprawdę
-              darmowy. Pro odblokowuje moc.
+              Bez okresu próbnego, bez ukrytych opłat.
             </p>
           </div>
 
@@ -364,7 +363,7 @@ export default function Page() {
             <div className="plan reveal">
               <div className="plan-name">Free</div>
               <div className="plan-price">
-                0 zł<span className="per">/zawsze</span>
+                9,99 zł<span className="per">/miesiąc</span>
               </div>
               <p className="plan-desc">
                 Wszystko, czego potrzebujesz, żeby przetestować, czy Vintly
@@ -378,7 +377,7 @@ export default function Page() {
                 <li>Wsparcie e-mail</li>
               </ul>
               <a href="#" className="btn btn-ghost">
-                Zacznij za darmo
+                Wypróbuj
               </a>
             </div>
 
@@ -386,7 +385,7 @@ export default function Page() {
               <span className="plan-badge">Polecane</span>
               <div className="plan-name">Pro</div>
               <div className="plan-price">
-                29 zł<span className="per">/miesiąc</span>
+                49.99 zł<span className="per">/miesiąc</span>
               </div>
               <p className="plan-desc">
                 Dla tych, którzy traktują Vinted poważnie i nie chcą tracić
