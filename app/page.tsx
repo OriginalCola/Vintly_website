@@ -361,7 +361,7 @@ export default function Page() {
 
           <div className="plans">
             <div className="plan reveal">
-              <div className="plan-name">Free</div>
+              <div className="plan-name">Starter</div>
               <div className="plan-price">
                 9,99 zł<span className="per">/miesiąc</span>
               </div>
